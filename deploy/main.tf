@@ -35,7 +35,7 @@ resource "aws_sns_topic_subscription" "sqs_subscription" {
   endpoint  = aws_sqs_queue.sqs_queue.arn
 }
 
-
+# setting lambda file
 data "archive_file" "zip_the_js_code" {
   type        = "zip"
   source_dir  = "${path.module}/../messager/"
@@ -50,6 +50,7 @@ resource "aws_lambda_function" "terraform_lambda_func" {
   runtime       = "nodejs18.x"
   depends_on    = [aws_iam_role_policy_attachment.attach_iam_policy_to_iam_role]
 }
+# end of setting lambda file
 
 resource "aws_iam_role" "lambda_role" {
   name = "${var.project}-lambda-role"
@@ -100,11 +101,6 @@ resource "aws_iam_role_policy_attachment" "attach_iam_policy_to_iam_role" {
   role       = aws_iam_role.lambda_role.name
   policy_arn = aws_iam_policy.iam_policy_for_lambda.arn
 }
-
-# locals {
-#     lambda_function_arn = "arn:aws:lambda:ap-southeast-1:236353575297:function:simple-message-handler-helloFromLambdaFunction-SfRQaUuWTpSx"
-# }
-
 
 # SQS get Message from SNS policy
 # https://dashbird.io/blog/5-common-amazon-sqs-issues/#:~:text=SNS%20Topic%20Not%20Publishing%20to,from%20the%20SNS%20service%20principal.&text=This%20problem%20is%20based%20on,are%20deployed%20in%20your%20account.

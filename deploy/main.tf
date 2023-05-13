@@ -38,12 +38,12 @@ resource "aws_sns_topic_subscription" "sqs_subscription" {
 # setting lambda file
 data "archive_file" "zip_the_js_code" {
   type        = "zip"
-  source_dir  = "${path.module}/../messager/"
-  output_path = "${path.module}/../messager/simple-msg-handler.zip"
+  source_dir  = "${path.module}/../src/messager/"
+  output_path = "${path.module}/../src/messager/simple-msg-handler.zip"
 }
 
 resource "aws_lambda_function" "terraform_lambda_func" {
-  filename      = "${path.module}/../messager/simple-msg-handler.zip"
+  filename      = "${path.module}/../src/messager/simple-msg-handler.zip"
   function_name = "simple-msg-handler-v2"
   role          = aws_iam_role.lambda_role.arn
   handler       = "simple-msg-handler.msg_handler"

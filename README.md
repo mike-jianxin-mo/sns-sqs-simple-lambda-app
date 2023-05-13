@@ -6,3 +6,5 @@ Ref:
 https://www.youtube.com/watch?v=ciTa2I7-tDE
 
 ### Step 2. Add Email function
+
+### Step 3. Add a Lambda function to produce

@@ -1,8 +1,8 @@
 EMAIL_CONFIG = {
-    "Source": 'sender@example.com',
+    "Source": 'mike.mo.jianxin@gmail.com',
     "Destination": {
         "ToAddresses": [
-            'recipient@example.com',
+            'mike.mo.jianxin@gmail.com',
         ]
     },
     "Message": {

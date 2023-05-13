@@ -2,7 +2,7 @@ import boto3
 from botocore.exceptions import BotoCoreError, ClientError
 from config import EMAIL_CONFIG
 
-def lambda_handler(event, context):
+def alarm_email_handler(event, context):
     ses = boto3.client('ses')
 
     try:

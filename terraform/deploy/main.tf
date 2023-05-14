@@ -130,11 +130,11 @@ resource "aws_sqs_queue_policy" "ses_queue_policy" {
   policy    = data.aws_iam_policy_document.sqs_reciever_iam_policy.json
 }
 
-# event source mapping for lambda function
-resource "aws_lambda_event_source_mapping" "event_source_mapping" {
-  event_source_arn = aws_sqs_queue.sqs_queue.arn
-  function_name    = aws_lambda_function.terraform_lambda_func.arn
-}
+# event source mapping for lambda function, temporarily disabled
+# resource "aws_lambda_event_source_mapping" "event_source_mapping" {
+#   event_source_arn = aws_sqs_queue.sqs_queue.arn
+#   function_name    = aws_lambda_function.terraform_lambda_func.arn
+# }
 
 # permission for lambda function to access SQS queue
 resource "aws_iam_policy" "lambda_sqs_policy" {

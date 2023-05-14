@@ -1,0 +1,10 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "event-trigger-app"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-cfgosn20oxwx"
+s3_prefix = "event-trigger-app"
+region = "ap-southeast-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
